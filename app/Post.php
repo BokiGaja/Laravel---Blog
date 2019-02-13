@@ -19,4 +19,10 @@ class Post extends Model
     {
         return self::where('published', 0)->get();
     }
+
+    public function comments()
+    {
+        // Connect this model with Comment model
+        return $this->hasMany(Comment::class);
+    }
 }

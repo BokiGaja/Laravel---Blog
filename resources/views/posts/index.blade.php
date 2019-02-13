@@ -1,20 +1,24 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>All posts</title>
-</head>
-<body>
-    <div>All posts</div>
-        <ul>
-            @foreach($posts as $post)
-            <li>Title{{ $post->id }} : {{ $post->title }}</li>
-            <li>Body{{ $post->id }} : {{ $post->body }}</li>
-                <hr>
-            @endforeach
-        </ul>
-</body>
-</html>
+@extends('layouts.master')
+
+@section('title', 'All posts')
+
+@section('content')
+    <main role="main" class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8 blog-main">
+                <h2 class="pb-3 mb-4 font-italic border-bottom" style="text-align: center">
+                    Posts
+                </h2>
+                @foreach($posts as $post)
+                    <div class="card" style="border: lightgrey 1px solid; background: whitesmoke; border-radius: 20px; box-shadow: 8px 8px 5px grey; margin-top: 20px">
+                        <div class="card-body" style="text-align: center">
+                            <a href="/posts/{{ $post->id }}"><h2 class="card-title">{{ $post->title }}</h2></a>
+                            <p class="blog-post-meta">{{ $post->created_at->format('d/M/Y') }}</p>
+                            <p class="card-text">{{ $post->body }}</p>
+                        </div>
+                    </div>
+                @endforeach
+            </div><!-- /.blog-main -->
+        </div><!-- /.row -->
+    </main><!-- /.container -->
+@endsection

@@ -15,7 +15,7 @@ class AlterPostsTableAddPublishedColumn extends Migration
     {
         // This way we customize our migration, all bellow was added by me
         Schema::table('posts', function (Blueprint $table){
-            $table->boolean('published')->default(0);
+            $table->boolean('published')->default(1);
         });
     }
 

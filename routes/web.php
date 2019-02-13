@@ -13,10 +13,12 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 // Use all resources from PostController
 Route::resource('posts', 'PostsController');
 
-// Create all routes from controller with pretext posts
-//Route::resource('posts', 'PostsController');
+Route::get('/register', 'RegisterController@create')->name('show-register');
+Route::post('/register', 'RegisterController@store')->name('register');
+
+Route::post('/posts/{id}/comments', 'PostsController@addComment')->name('posts.comment');
