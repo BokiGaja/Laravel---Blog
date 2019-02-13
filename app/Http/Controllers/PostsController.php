@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\User;
 use Illuminate\Http\Request;
 use App\Post;
 // You can use this one for validation also
@@ -10,6 +11,12 @@ use App\Post;
 
 class PostsController extends Controller
 {
+    // Adding middleware to some functions from controller
+    public function __construct()
+    {
+        $this->middleware('auth', ['only' => ['create', 'store', 'edit', 'update', 'delete']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -47,9 +54,15 @@ class PostsController extends Controller
         // See what you got when submit input
 //        \Log::info(print_r($request->all(), true));
         // Add input to DB
-        Post::create($request->all());
+        // Add post with user who created it
+        Post::create(
+            array_merge(
+                $request->all(),
+                ['user_id' => auth()->user()->id]
+            )
+        );
         // Return to page after submitting input
-        return redirect(route('posts.index'));
+        return redirect('/posts');
     }
 
     /**
@@ -72,7 +85,8 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -82,9 +96,14 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Post $post)
     {
-        //
+        $post->update(request()->validate([
+            'title'=>'required|min:5',
+            'body'=>'required'
+        ]));
+
+        return redirect('/posts/'.$post->id);
     }
 
     /**
@@ -93,9 +112,10 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect('/posts');
     }
 
     public function addComment(Request $request, $id)

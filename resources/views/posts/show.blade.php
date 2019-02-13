@@ -8,8 +8,21 @@
             <div class="card-body">
                 <h1 class="card-title"> {{ $post->title }}</h1>
                 <p class="card-text">{{ $post->body }}</p>
+                <p style="font-style: italic;">by</p>
+                {{-- We get users name in Post Model--}}
+                @if($post->user)
+                    <h4>{{ $post->user->name }}</h4>
+                @endif
             </div>
         </div>
+        @auth
+        <a href="/posts/{{ $post->id }}/edit" class="btn btn-primary" style="margin-top: 20px">Edit</a>
+        <form method="POST" action="/posts/ {{ $post->id }}">
+            @method('DELETE')
+            @csrf
+            <button class="btn btn-danger" type="submit">Delete</button>
+        </form>
+        @endauth
         <h2 class="pb-3 mb-4 font-italic border-bottom" style="margin-top: 30px">Comments</h2>
         <div class="d-flex flex-row">
             @foreach($post->comments as $comment)

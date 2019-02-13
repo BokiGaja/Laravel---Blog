@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>@yield('title')</title>
 </head>
-@include('partials.header')
 <body>
+    @include('partials.header')
     @yield('content')
     @include('partials.footer')
 </body>

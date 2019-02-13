@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -26,8 +27,9 @@ class RegisterController extends Controller
         // Encryption with bcrypt helper
         $data['password'] = bcrypt($data['password']);
         // Creation
-        User::create($data);
-
+        $user = User::create($data);
+        // Login user
+        auth()->login($user);
         return redirect()->route('home');
 
     }

@@ -8,7 +8,7 @@ class Post extends Model
 {
 //    Here we define properties that we can input (id... is automatically added)
     protected $fillable = [
-        'title', 'body'
+        'title', 'body', 'user_id'
     ];
 
     public static function published()
@@ -18,6 +18,11 @@ class Post extends Model
     public static function drafts()
     {
         return self::where('published', 0)->get();
+    }
+    // Connect post with user
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function comments()
