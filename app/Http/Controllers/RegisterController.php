@@ -12,13 +12,22 @@ class RegisterController extends Controller
         return view('auth.register');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        User::create(request()->validate([
+        // Validation
+        $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6',
-        ]));
+        ]);
+        $data = $request->only([
+            'email', 'name', 'password'
+        ]);
+        // Encryption with bcrypt helper
+        $data['password'] = bcrypt($data['password']);
+        // Creation
+        User::create($data);
+
         return redirect()->route('home');
 
     }

@@ -9,12 +9,13 @@
     </div>
     <div class="d-flex justify-content-end align-items-center">
         <nav class="navbar navbar-dark bg-dark">
-            <form class="form-inline">
-                <div class="form-group has-search">
-                    <input type="text" class="form-control search-query" placeholder="Search">
-                    <a class="btn btn-info" style="color: white" href="#"><span class="fa fa-search"></span></a>
-                </div>
-            </form>
+            {{-- Search bar --}}
+            {{--<form class="form-inline">--}}
+                {{--<div class="form-group has-search">--}}
+                    {{--<input type="text" class="form-control search-query" placeholder="Search">--}}
+                    {{--<a class="btn btn-info" style="color: white" href="#"><span class="fa fa-search"></span></a>--}}
+                {{--</div>--}}
+            {{--</form>--}}
         </nav>
         <a class="btn btn-sm btn-outline-info btn-lg" href="#">Sign up</a>
         <a class="btn btn-sm btn-outline-info btn-lg" href="/register">Register</a>
