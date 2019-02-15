@@ -7,7 +7,7 @@
         <h1 class="pb-3 mb-4 font-italic border-bottom" style="text-align: center">
             Create post
         </h1>
-        <form method="POST" action="/posts">
+        <form method="POST" action="{{ route('posts-store') }}">
             @csrf
             <div class="form-group row">
                 <div class="col-8">

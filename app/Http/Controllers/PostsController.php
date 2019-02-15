@@ -15,10 +15,10 @@ use App\Mail\CommentRecieved;
 class PostsController extends Controller
 {
     // Adding middleware to some functions from controller
-    public function __construct()
-    {
-        $this->middleware('auth', ['only' => ['create', 'store', 'edit', 'update', 'delete']]);
-    }
+//    public function __construct()
+//    {
+//        $this->middleware('auth', ['only' => ['create', 'store', 'edit', 'update', 'delete']]);
+//    }
 
     /**
      * Display a listing of the resource.
@@ -62,7 +62,7 @@ class PostsController extends Controller
             )
         );
         // Return to page after submitting input
-        return redirect('/posts');
+        return redirect(route('posts-index'));
     }
 
     /**

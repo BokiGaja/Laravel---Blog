@@ -1,0 +1,7 @@
+.post-card {
+    border: lightgrey 1px solid;
+    background: whitesmoke;
+    border-radius: 20px;
+    box-shadow: 8px 8px 5px grey;
+    margin-top: 20px
+}

@@ -7,7 +7,7 @@
         <h1 class="pb-3 mb-4 font-italic border-bottom" style="text-align: center">
             Edit post
         </h1>
-        <form method="POST" action="/posts/{{$post->id}}">
+        <form method="POST" action="{{ route(('posts-update'), ['id' => $post->id ]) }}">
             @method('PATCH')
             @csrf
             <div class="form-group row">

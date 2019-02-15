@@ -2,8 +2,8 @@
     <div>
         <img src="https://www.vivifyideas.com/images/logo-cover.jpg" style="height: 80px; width: 200px; border-radius: 20%" alt="">
         @auth
-            <a class="btn btn-sm btn-outline-info btn-lg" href="/posts/create">Create Post</a>
-            <a class="btn btn-sm btn-outline-info btn-lg" href="/my-posts">My posts</a>
+            <a class="btn btn-sm btn-outline-info btn-lg" href="{{ route('posts-create') }}">Create Post</a>
+            <a class="btn btn-sm btn-outline-info btn-lg" href="{{ route('my-posts') }}">My posts</a>
         @endauth
     </div>
     <div style="margin-left: 100px">

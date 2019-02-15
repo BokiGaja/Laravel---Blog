@@ -14,10 +14,20 @@
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
-
-// Use all resources from PostController, there we also added middleware
-Route::resource('posts', 'PostsController');
 // Set middleware guest on group of routes, it will allow only to guest to visit those routes
+Route::group(['middleware' => ['auth']], function ()
+{
+    Route::get('posts/create', 'PostsController@create')->name('posts-create');
+    Route::post('posts', 'PostsController@store')->name('posts-store');
+    Route::get('posts/{post}/edit', 'PostsController@edit')->name('posts-edit');
+    Route::patch('posts/{post}', 'PostsController@update')->name('posts-update');
+    Route::delete('posts/{post}', 'PostsController@destroy')->name('posts-destroy');
+    Route::get('/my-posts', 'UserPostsController@index')->name('my-posts');
+});
+
+Route::get('posts', 'PostsController@index')->name('posts-index');
+Route::get('posts/{post}', 'PostsController@show')->name('posts-show');
+
 Route::group(['middleware' => ['guest']], function ()
 {
     Route::get('/register', 'RegisterController@create')->name('show-register');
@@ -29,7 +39,4 @@ Route::group(['middleware' => ['guest']], function ()
 Route::get('/logout', 'LoginController@logout')->name('logout');
 Route::post('/posts/{id}/comments', 'PostsController@addComment')->name('posts.comment');
 
-Route::group(['middleware' => ['auth']], function ()
-{
-    Route::get('/my-posts', 'UserPostsController@index')->name('my-posts');
-});
+
