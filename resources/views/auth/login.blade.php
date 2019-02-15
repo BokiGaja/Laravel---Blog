@@ -20,11 +20,9 @@
         </div>
         <div class="form-group row">
             <div class="col-8">
-                {{-- is-invalid is imporatnt, it will connect with invalid-feedback from blade --}}
                 <input id="text" name="password" type="password" class="form-control
                         {{ $errors->has('password') ? 'is-invalid' : '' }}"
                        placeholder="Password" value="{{ old('password') }}">
-                {{-- Validation, we pass to our blade name of our input--}}
                 @include('partials.invalid-feedback', ['field' => 'password'])
             </div>
         </div>

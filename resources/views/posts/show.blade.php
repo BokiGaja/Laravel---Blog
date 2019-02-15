@@ -3,7 +3,8 @@
 @section('title', $post->title)
 
 @section('content')
-    <div class="container" style="text-align: center">
+    <div class="container" style="text-align: center; margin-top: 10px">
+        {{-- Post --}}
         <div class="card" style="border: lightgrey 1px solid; background: whitesmoke; border-radius: 20px; box-shadow: 8px 8px 5px grey;">
             <div class="card-body">
                 <h1 class="card-title"> {{ $post->title }}</h1>
@@ -23,6 +24,7 @@
             <button class="btn btn-danger" type="submit">Delete</button>
         </form>
         @endauth
+        {{-- Comments --}}
         <h2 class="pb-3 mb-4 font-italic border-bottom" style="margin-top: 30px">Comments</h2>
         <div class="d-flex flex-row">
             @foreach($post->comments as $comment)
@@ -37,6 +39,7 @@
             @endforeach
         </div>
     </div>
+    {{-- Add comment --}}
     <div class="container" style="padding-top: 20px">
         <form method="POST" action="{{ route(('posts.comment'), ['id' => $post->id]) }}">
             @csrf
@@ -60,7 +63,7 @@
             <div class="form-group row">
                 <div class="offset-4 col-8">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <a href="/posts" class="btn btn-primary">Go back</a>
+                    <a href="javascript: history.go(-1)" class="btn btn-primary">Go back</a>
                 </div>
             </div>
         </form>

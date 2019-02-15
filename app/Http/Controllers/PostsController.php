@@ -6,6 +6,9 @@ use App\Comment;
 use App\User;
 use Illuminate\Http\Request;
 use App\Post;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\CommentRecieved;
+
 // You can use this one for validation also
 //use App\Http\Requests\CreatePostRequest;
 
@@ -51,9 +54,6 @@ class PostsController extends Controller
             'title'=>'required|min:5',
             'body'=>'required'
         ]);
-        // See what you got when submit input
-//        \Log::info(print_r($request->all(), true));
-        // Add input to DB
         // Add post with user who created it
         Post::create(
             array_merge(
@@ -124,12 +124,17 @@ class PostsController extends Controller
             'author'=>'required|min:5',
             'text'=>'required'
         ]);
-        Comment::create([
+        $comment = Comment::create([
             'post_id' => $id,
             'author' => $request->author,
             'text' => $request->text
         ]);
-
+        if ($comment->post->user)
+        {
+            Mail::to($comment->post->user)->send(new CommentRecieved(
+                $comment->post, $comment
+            ));
+        }
         return redirect()->back();
     }
 }

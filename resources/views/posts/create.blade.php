@@ -29,7 +29,7 @@
             <div class="form-group row">
                 <div class="offset-4 col-8">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <a href="/posts" class="btn btn-primary">Go back</a>
+                    <a href="javascript: history.go(-1)" class="btn btn-primary">Go back</a>
                 </div>
             </div>
         </form>
