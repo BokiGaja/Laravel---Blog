@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Services\PostService;
 use App\User;
 use Illuminate\Http\Request;
 use App\Post;
@@ -49,20 +50,12 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        // Validation
-        $request->validate([
-            'title'=>'required|min:5',
-            'body'=>'required'
-        ]);
-        // Add post with user who created it
-        Post::create(
-            array_merge(
-                $request->all(),
-                ['user_id' => auth()->user()->id]
-            )
-        );
+        $createdPost = PostService::savePost($request);
         // Return to page after submitting input
-        return redirect(route('posts-index'));
+        if ($createdPost !== null)
+        {
+            return redirect(route('posts-index'));
+        }
     }
 
     /**
@@ -98,11 +91,7 @@ class PostsController extends Controller
      */
     public function update(Post $post)
     {
-        $post->update(request()->validate([
-            'title'=>'required|min:5',
-            'body'=>'required'
-        ]));
-
+        PostService::editPost($post);
         return redirect('/posts/'.$post->id);
     }
 
@@ -120,21 +109,10 @@ class PostsController extends Controller
 
     public function addComment(Request $request, $id)
     {
-        $request->validate([
-            'author'=>'required|min:5',
-            'text'=>'required'
-        ]);
-        $comment = Comment::create([
-            'post_id' => $id,
-            'author' => $request->author,
-            'text' => $request->text
-        ]);
-        if ($comment->post->user)
+        $comment = PostService::saveComment($request, $id);
+        if ($comment !== null)
         {
-            Mail::to($comment->post->user)->send(new CommentRecieved(
-                $comment->post, $comment
-            ));
+            return redirect()->back();
         }
-        return redirect()->back();
     }
 }

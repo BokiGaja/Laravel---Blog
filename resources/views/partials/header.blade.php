@@ -4,6 +4,9 @@
         @auth
             <a class="btn btn-sm btn-outline-info btn-lg" href="{{ route('posts-create') }}">Create Post</a>
             <a class="btn btn-sm btn-outline-info btn-lg" href="{{ route('my-posts') }}">My posts</a>
+            @if(auth()->user()->email == 'admin@admin.com')
+                <a class="btn btn-sm btn-outline-info btn-lg" href="{{ route('users-edit') }}">Users</a>
+            @endif
         @endauth
     </div>
     <div style="margin-left: 100px">

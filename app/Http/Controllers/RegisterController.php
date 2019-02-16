@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Services\AuthService;
 use App\User;
 
 use Illuminate\Http\Request;
@@ -15,21 +16,7 @@ class RegisterController extends Controller
 
     public function store(Request $request)
     {
-        // Validation
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6',
-        ]);
-        $data = $request->only([
-            'email', 'name', 'password'
-        ]);
-        // Encryption with bcrypt helper
-        $data['password'] = bcrypt($data['password']);
-        // Creation
-        $user = User::create($data);
-        // Login user
-        auth()->login($user);
+        AuthService::register($request);
         return redirect()->route('home');
 
     }

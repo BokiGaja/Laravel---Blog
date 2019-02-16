@@ -22,5 +22,4 @@
         </div>
     </main>
 
-{{ URL::asset('css/posts-index.css') }}
 @endsection
