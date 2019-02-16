@@ -37,7 +37,7 @@ Route::group(['middleware' => ['guest']], function ()
 });
 
 Route::get('/logout', 'LoginController@logout')->name('logout');
-Route::post('/posts/{id}/comments', 'PostsController@addComment')->name('posts.comment');
+Route::post('/posts/{id}/comments', 'PostsController@addComment')->name('posts-comment');
 
 Route::get('/users', 'UsersController@edit')->name('users-edit');
 Route::delete('/users/{user}', 'UsersController@destroy')->name('delete-user');

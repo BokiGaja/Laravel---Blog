@@ -57,8 +57,11 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
+        // Authorize from UserPolicy
+        $this->authorize('isAdmin', $user);
         $users = User::where('id', '!=', auth()->id())->get();
         return view('user.edit', ['users' => $users]);
+
     }
 
     /**

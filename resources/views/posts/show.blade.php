@@ -16,14 +16,14 @@
                 @endif
             </div>
         </div>
-        @if($post->user->name == auth()->user()->name || auth()->user()->email == 'admin@admin.com')
-                <a href="/posts/{{ $post->id }}/edit" class="btn btn-primary" style="margin-top: 20px">Edit</a>
-                <form method="POST" action="/posts/ {{ $post->id }}">
-                    @method('DELETE')
-                    @csrf
-                    <button class="btn btn-danger" type="submit">Delete</button>
-                </form>
-        @endif
+        @can('update', $post)
+            <a href="/posts/{{ $post->id }}/edit" class="btn btn-primary" style="margin-top: 20px">Edit</a>
+            <form method="POST" action="/posts/ {{ $post->id }}">
+                @method('DELETE')
+                @csrf
+                <button class="btn btn-danger" type="submit">Delete</button>
+            </form>
+        @endcan
         {{-- Comments --}}
         <h2 class="pb-3 mb-4 font-italic border-bottom" style="margin-top: 30px">Comments</h2>
         <div class="d-flex flex-row">
@@ -41,7 +41,7 @@
     </div>
     {{-- Add comment --}}
     <div class="container" style="padding-top: 20px">
-        <form method="POST" action="{{ route(('posts.comment'), ['id' => $post->id]) }}">
+        <form method="POST" action="{{ route(('posts-comment'), ['id' => $post->id]) }}">
             @csrf
             <div class="form-group row">
                 <div class="col-8">

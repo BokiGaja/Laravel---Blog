@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Comment;
 use App\Services\PostService;
-use App\User;
 use Illuminate\Http\Request;
 use App\Post;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\CommentRecieved;
 
 // You can use this one for validation also
 //use App\Http\Requests\CreatePostRequest;
@@ -79,6 +75,7 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
+        $this->authorize('update', $post);
         return view('posts.edit', compact('post'));
     }
 
