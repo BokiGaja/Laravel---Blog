@@ -21,14 +21,14 @@
                 @endif
             </div>
         </div>
-        @if(auth()->user()->id == $post->user_id)
-            <a href="/posts/{{ $post->id }}/edit" class="btn btn-primary" style="margin-top: 20px">Edit</a>
-            <form method="POST" action="/posts/ {{ $post->id }}">
-                @method('DELETE')
-                @csrf
-                <button class="btn btn-danger" type="submit">Delete</button>
-            </form>
-        @endif
+            @can('update', $post)
+                <a href="/posts/{{ $post->id }}/edit" class="btn btn-primary" style="margin-top: 20px">Edit</a>
+                <form method="POST" action="/posts/ {{ $post->id }}">
+                    @method('DELETE')
+                    @csrf
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+            @endcan
         {{-- Comments --}}
         <h2 class="pb-3 mb-4 font-italic border-bottom" style="margin-top: 30px">Comments</h2>
         <div class="d-flex flex-row">
