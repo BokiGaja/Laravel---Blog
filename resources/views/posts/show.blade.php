@@ -48,7 +48,7 @@
                     {{-- is-invalid is imporatnt, it will connect with invalid-feedback from blade --}}
                     <input id="text" name="author" type="text" class="form-control
                             {{ $errors->has('author') ? 'is-invalid' : '' }}"
-                            placeholder="Author" value="{{ old('author') }}">
+                            placeholder="Author" value="{{ old('author') }}" required>
                             {{-- Validation, we pass to our blade name of our input--}}
                     @include('partials.invalid-feedback', ['field' => 'author'])
                 </div>
@@ -56,7 +56,7 @@
             <div class="form-group row">
                 <div class="col-8">
                     <textarea id="textarea" name="text" cols="40" rows="5" class="form-control
-                            {{ $errors->has('text') ? 'is-invalid' : '' }}" placeholder="Text">{{ old('text') }}</textarea>
+                            {{ $errors->has('text') ? 'is-invalid' : '' }}" placeholder="Text" required>{{ old('text') }}</textarea>
                     @include('partials.invalid-feedback', ['field' => 'text'])
                 </div>
             </div>

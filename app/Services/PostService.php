@@ -10,6 +10,7 @@ namespace App\Services;
 
 
 use App\Comment;
+use App\Events\CommentCreated;
 use App\Mail\CommentRecieved;
 use App\Post;
 use Illuminate\Support\Facades\Mail;

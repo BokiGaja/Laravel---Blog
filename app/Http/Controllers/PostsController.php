@@ -24,8 +24,9 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::published();
-        return view('posts.index', compact('posts'));
+        return view('posts.index', [
+            'posts' => Post::published()
+        ]);
     }
 
     /**
