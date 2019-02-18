@@ -34,6 +34,22 @@
                 @include('partials.invalid-feedback', ['field' => 'password'])
             </div>
         </div>
+        <div class="form-group">
+            <label for="age">Age</label>
+            <select name="age" id="age" class="form-control" style="width: 65px">
+                @for($i = 1; $i <= 100; $i++)
+                    <option value="{{ $i }}">{{ $i }}</option>
+                @endfor
+            </select>
+            @include('partials.invalid-feedback', ['field' => 'age'])
+        </div>
+
+        @if($message = session('message'))
+            <div class="alert alert-danger" role="alert" style="text-align: center">
+                {{ $message }}
+            </div>
+        @endif
+
         <div class="form-group row">
             <div class="offset-4 col-8">
                 <button type="submit" class="btn btn-primary">Register</button>

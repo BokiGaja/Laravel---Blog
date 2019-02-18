@@ -35,6 +35,7 @@ class AuthService
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6',
+            'age' => 'required|integer|min:1'
         ]);
         $data = $registerData->only([
             'email', 'name', 'password'

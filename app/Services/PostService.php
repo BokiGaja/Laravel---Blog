@@ -66,7 +66,6 @@ class PostService
 
     public static function flashMessage($message)
     {
-
         session()->flash('message', $message);
     }
 }
