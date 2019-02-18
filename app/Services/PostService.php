@@ -63,4 +63,10 @@ class PostService
 
         return $comment;
     }
+
+    public static function flashMessage($message)
+    {
+
+        session()->flash('message', $message);
+    }
 }
