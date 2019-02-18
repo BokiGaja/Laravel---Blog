@@ -4,6 +4,11 @@
 
 @section('content')
     <div class="container" style="text-align: center; margin-top: 10px">
+        @if (session('message'))
+            <div class="alert alert-success" role="alert" style="text-align: center">
+                {{ session('message') }}
+            </div>
+        @endif
         {{-- Post --}}
         <div class="card" style="border: lightgrey 1px solid; background: whitesmoke; border-radius: 20px; box-shadow: 8px 8px 5px grey;">
             <div class="card-body">
@@ -16,14 +21,14 @@
                 @endif
             </div>
         </div>
-        @can('update', $post)
+        @if(auth()->user()->id == $post->user_id)
             <a href="/posts/{{ $post->id }}/edit" class="btn btn-primary" style="margin-top: 20px">Edit</a>
             <form method="POST" action="/posts/ {{ $post->id }}">
                 @method('DELETE')
                 @csrf
                 <button class="btn btn-danger" type="submit">Delete</button>
             </form>
-        @endcan
+        @endif
         {{-- Comments --}}
         <h2 class="pb-3 mb-4 font-italic border-bottom" style="margin-top: 30px">Comments</h2>
         <div class="d-flex flex-row">

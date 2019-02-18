@@ -17,8 +17,8 @@ class PostPolicy
      * @param  \App\Post  $post
      * @return mixed
      */
-    public function update(User $user, Post $post)
+    public function update($userId, Post $post)
     {
-        return $post->user_id == $user->id;
+        return $post->user_id == $userId;
     }
 }

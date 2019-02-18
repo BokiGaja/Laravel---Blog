@@ -51,6 +51,7 @@ class PostsController extends Controller
         // Return to page after submitting input
         if ($createdPost !== null)
         {
+            session()->flash('message', 'Your post has been created');
             return redirect(route('posts-index'));
         }
     }
@@ -76,7 +77,6 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
-        $this->authorize('update', $post);
         return view('posts.edit', compact('post'));
     }
 
@@ -90,6 +90,7 @@ class PostsController extends Controller
     public function update(Post $post)
     {
         PostService::editPost($post);
+        session()->flash('message', 'Your post has been updated');
         return redirect('/posts/'.$post->id);
     }
 
@@ -102,6 +103,7 @@ class PostsController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
+        session()->flash('message', 'Your post has been deleted');
         return redirect('/posts');
     }
 
