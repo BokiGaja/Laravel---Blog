@@ -4,8 +4,8 @@
     <list default="true" id="afcc7827-d37e-415c-9d42-86df641c2cff" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/../../nba/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../WeekendOOP/WeekendTask.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../../WeekendOOP/WeekendTask.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,11 +19,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="24" column="49" lean-forward="true" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
+            <state relative-caret-position="338">
+              <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Services/PostService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="32" column="10" lean-forward="true" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/posts/edit.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="182">
+              <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -36,44 +54,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/user/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/user/edit.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/posts/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="21" column="49" lean-forward="true" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="105" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Services/AuthService.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PostsController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="101" column="23" lean-forward="true" selection-start-line="101" selection-start-column="23" selection-end-line="101" selection-end-column="23" />
+            <state relative-caret-position="208">
+              <caret line="8" column="57" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -105,7 +87,6 @@
         <option value="$PROJECT_DIR$/app/Comment.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CommentController.php" />
         <option value="$PROJECT_DIR$/resources/views/posts/comment.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/welcome.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/posts/create.blade.php" />
@@ -126,6 +107,8 @@
         <option value="$PROJECT_DIR$/resources/views/user/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PostsController.php" />
         <option value="$PROJECT_DIR$/resources/views/user/edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/posts/edit.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
       </list>
     </option>
   </component>
@@ -354,12 +337,12 @@
       <workItem from="1549905169972" duration="13239000" />
       <workItem from="1549967489394" duration="11825000" />
       <workItem from="1549991579728" duration="23000" />
-      <workItem from="1550596370374" duration="10550000" />
+      <workItem from="1550596370374" duration="10840000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53077000" />
+    <option name="totallyTimeSpent" value="53367000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="960" y="25" width="960" height="1055" extended-state="4" />
@@ -380,7 +363,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32998884" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32998884" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -585,13 +568,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/AuthService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/partials/header.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
@@ -609,13 +585,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="24" column="49" lean-forward="true" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Post.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="337">
@@ -623,10 +592,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/posts/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/user/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="21" column="49" lean-forward="true" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="105" />
+        <state relative-caret-position="130">
+          <caret line="5" column="54" lean-forward="true" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -637,17 +606,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/user/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Services/AuthService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        <state relative-caret-position="312">
+          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/user/edit.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/posts/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="21" column="49" lean-forward="true" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/user/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="8" column="57" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Services/PostService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="32" column="10" lean-forward="true" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/posts/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
-          <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
+          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
         </state>
       </provider>
     </entry>

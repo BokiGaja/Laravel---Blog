@@ -8,7 +8,7 @@
             Edit post
         </h1>
         <form method="POST" action="{{ route(('posts-update'), ['id' => $post->id ]) }}">
-            @method('PATCH')
+            @method('PUT')
             @csrf
             <div class="form-group row">
                 <div class="col-8">

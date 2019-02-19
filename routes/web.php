@@ -20,7 +20,7 @@ Route::group(['middleware' => ['auth']], function ()
     Route::get('posts/create', 'PostsController@create')->name('posts-create');
     Route::post('posts', 'PostsController@store')->name('posts-store');
     Route::get('posts/{post}/edit', 'PostsController@edit')->name('posts-edit');
-    Route::patch('posts/{post}', 'PostsController@update')->name('posts-update');
+    Route::put('posts/{post}', 'PostsController@update')->name('posts-update');
     Route::delete('posts/{post}', 'PostsController@destroy')->name('posts-destroy');
     Route::get('/my-posts', 'UserPostsController@index')->name('my-posts');
 });
