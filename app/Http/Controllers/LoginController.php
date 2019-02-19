@@ -20,7 +20,11 @@ class LoginController extends Controller
 
     public function store(Request $request)
     {
-        AuthService::login($request);
-        return redirect()->route('home');
+        if (AuthService::login($request)){
+            return redirect()->route('home');
+        }
+        return back()->withErrors([
+            'message' => 'Wrong login credentials!'
+        ]);
     }
 }

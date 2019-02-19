@@ -22,10 +22,9 @@ class AuthService
         // Login, attempt will try to login with credentials (email, password)
         if (!auth()->attempt($loginData->only(['email', 'password'])))
         {
-            return back()->withErrors([
-                'message' => 'Wrong login credentials!'
-            ]);
+            return false;
         }
+        return true;
     }
 
     public static function register($registerData)
