@@ -17,9 +17,9 @@
                 @foreach($posts as $post)
                     <div class="card post-card">
                         <div class="card-body" style="text-align: center">
-                            <a href="/posts/{{ $post->id }}"><h2 class="card-title">{{ $post->title }}</h2></a>
+                            <a href="/posts/{{ $post->id }}"><h2 class="card-title">{{ str_limit($post->title, $limit = 25, $end = '...') }}</h2></a>
                             <p class="blog-post-meta">{{ $post->created_at->format('d/M/Y') }}</p>
-                            <p class="card-text">{{ $post->body }}</p>
+                            <p class="card-text">{{ str_limit($post->body, $limit = 350, $end = '...') }}</p>
                         </div>
                     </div>
                 @endforeach
