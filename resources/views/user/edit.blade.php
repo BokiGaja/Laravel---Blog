@@ -5,7 +5,7 @@
 @section('content')
     <div class="container" style="text-align: center">
     <h1>Users</h1>
-        <div class="d-flex flex-row">
+        <div class="row">
         @foreach($users as $user)
             <div class="card" style="width: 10rem; text-align: center; background: lightcyan; border-radius: 5%; margin-top: 10px; margin-left: 20px">
                 <div class="card-body">

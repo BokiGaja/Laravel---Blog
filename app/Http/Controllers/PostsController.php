@@ -102,8 +102,9 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
+        $post = Post::findOrFail($id);
         $post->delete();
         PostService::flashMessage('Your post has been deleted');
         return redirect('/posts');
