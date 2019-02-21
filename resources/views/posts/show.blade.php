@@ -16,7 +16,7 @@
                 <p class="card-text">{{ $post->body }}</p>
                 <p style="font-style: italic;">by</p>
                 {{-- We get users name in Post Model--}}
-                @if($post->user)Illuminate\Database\Eloquent\Collection::attach
+                @if($post->user)
                     <h4>{{ $post->user->name }}</h4>
                 @endif
             </div>

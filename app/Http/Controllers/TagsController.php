@@ -12,9 +12,8 @@ class TagsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($tagId)
+    public function index(Tag $tag)
     {
-        $tag = Tag::find($tagId);
         $posts = $tag->posts()->paginate(10);
         return view('posts.index', compact('posts'));
     }

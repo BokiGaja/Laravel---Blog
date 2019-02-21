@@ -15,8 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-
-Route::get('/posts/tags/{id}', 'TagsController@index');
+Route::get('/posts/tags/{tag}', 'TagsController@index');
 // Set middleware guest on group of routes, it will allow only to guest to visit those routes
 Route::group(['middleware' => ['auth']], function ()
 {

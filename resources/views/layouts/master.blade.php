@@ -12,6 +12,11 @@
 </head>
 <body>
     @include('partials.header')
+    <div>
+        @foreach($tags as $tag)
+            <p>{{ $tag->name }}</p>
+        @endforeach
+    </div>
     @yield('content')
 </body>
 </html>
