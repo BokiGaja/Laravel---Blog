@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\PostService;
+use App\Tag;
 use Illuminate\Http\Request;
 use App\Post;
 
@@ -11,6 +12,7 @@ use App\Post;
 
 class PostsController extends Controller
 {
+
     // Adding middleware to some functions from controller
 //    public function __construct()
 //    {
@@ -24,7 +26,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::published()->paginate(10);
+        $posts = Post::published()->orderBy('id', 'DESC')->paginate(10);
         return view('posts.index', [
             'posts' => $posts
         ]);
@@ -37,7 +39,8 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        $tags = Tag::all();
+        return view('posts.create', compact('tags'));
     }
 
     /**
@@ -49,6 +52,7 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $createdPost = PostService::savePost($request);
+        $createdPost->tags()->attach(\request('tags'));
         // Return to page after submitting input
         if ($createdPost !== null)
         {

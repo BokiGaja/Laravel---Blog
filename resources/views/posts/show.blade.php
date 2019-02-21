@@ -16,7 +16,7 @@
                 <p class="card-text">{{ $post->body }}</p>
                 <p style="font-style: italic;">by</p>
                 {{-- We get users name in Post Model--}}
-                @if($post->user)
+                @if($post->user)Illuminate\Database\Eloquent\Collection::attach
                     <h4>{{ $post->user->name }}</h4>
                 @endif
             </div>
@@ -29,6 +29,16 @@
                     <button class="btn btn-danger" type="submit">Delete</button>
                 </form>
             @endcan
+            {{-- Tags --}}
+        @if(count($post->tags))
+            <ul>
+                @foreach($post->tags as $tag)
+                    <li>
+                        <a href="/posts/tags/{{ $tag->id }}">{{ $tag->name }}</a>
+                    </li>
+                @endforeach
+            </ul>
+        @endif
         {{-- Comments --}}
         <h2 class="pb-3 mb-4 font-italic border-bottom" style="margin-top: 30px">Comments</h2>
         <div class="d-flex flex-row">

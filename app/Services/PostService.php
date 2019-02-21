@@ -22,7 +22,8 @@ class PostService
         // Validation
         $postData->validate([
             'title'=>'required|min:5',
-            'body'=>'required'
+            'body'=>'required',
+            'tags' => 'required|array'
         ]);
         // Add post with user who created it
         return Post::create(

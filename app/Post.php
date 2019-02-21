@@ -30,4 +30,9 @@ class Post extends Model
         // Connect this model with Comment model
         return $this->hasMany(Comment::class);
     }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 }

@@ -14,6 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+
+
+Route::get('/posts/tags/{id}', 'TagsController@index');
 // Set middleware guest on group of routes, it will allow only to guest to visit those routes
 Route::group(['middleware' => ['auth']], function ()
 {
@@ -41,4 +44,5 @@ Route::post('/posts/{id}/comments', 'PostsController@addComment')->name('posts-c
 
 Route::get('/users', 'UsersController@edit')->name('users-edit');
 Route::delete('/users/{user}', 'UsersController@destroy')->name('delete-user');
+
 
