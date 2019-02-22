@@ -3,7 +3,7 @@
 @section('title', 'All posts')
 
 @section('content')
-    <main role="main" class="container">
+    <div class="container">
         @if (session('message'))
             <div class="alert alert-success" role="alert" style="text-align: center">
                 {{ session('message') }}
@@ -26,5 +26,5 @@
                 {{ $posts->links() }}
             </div>
         </div>
-    </main>
+    </div>
 @endsection

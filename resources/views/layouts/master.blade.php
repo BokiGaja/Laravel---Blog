@@ -12,12 +12,10 @@
 </head>
 <body>
     @include('partials.header')
-    <div>
-        @foreach($tags as $tag)
-            <p>{{ $tag->name }}</p>
-        @endforeach
+    <div class="row">
+        @include('partials.sidebar')
+        @yield('content')
     </div>
-    @yield('content')
 </body>
 </html>
 
@@ -26,6 +24,7 @@
         height: 100vh;
         margin: 0;
         overflow-y: scroll;
+        overflow-x: hidden;
         background-color: whitesmoke;
     }
 </style>
