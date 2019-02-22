@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ExampleTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * A basic test example.
      *
@@ -14,8 +15,13 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $response = $this->get('/');
+        $response = $this->get('/posts');
+        $response->assertStatus(200);
+    }
 
+    public function testEmptyRouteTest()
+    {
+        $response = $this->get('/');
         $response->assertStatus(200);
     }
 }
