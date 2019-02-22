@@ -32,3 +32,16 @@ $factory->define(App\Post::class, function (Faker $faker) {
         'published' => 1
     ];
 });
+
+$factory->define(\App\Comment::class, function (Faker $faker) {
+   return [
+        'author' => $faker->name,
+        'text' => $faker->text
+   ];
+});
+
+$factory->define(\App\Tag::class, function (Faker $faker) {
+   return [
+        'name' => $faker->name
+   ];
+});
